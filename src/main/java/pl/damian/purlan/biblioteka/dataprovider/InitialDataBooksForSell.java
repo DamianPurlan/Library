@@ -19,14 +19,15 @@ public class InitialDataBooksForSell implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        creatBook("Harry Pjoter" , "Biograficzna " , "PWN" , "J.K Rowling" , "4", " 100");
-        creatBook("Harry Pjoter - wiezien askabanu" , "Historyczna " , "JWP" , "J.K " , "4.2", "120");
-        creatBook("Harry Pjoter - czary feniksa" , "Biograficzna " , "PWN" , "J Rowling" , "3.8", "80");
+        creatBook("Harry Pjoter" , "Biograficzna " , "PWN" , "J.K Rowling" , "4", 100);
+        creatBook("Harry Pjoter - wiezien askabanu" , "Historyczna " , "JWP" , "J.K " ,"4.2", 120);
+        creatBook("Harry Pjoter - czary feniksa" , "Biograficzna " , "PWN" , "J Rowling" ,"3.8", 80);
+        creatBook("Wiedzmin" , "Biograficzna " , "PWN" , "Rowling" , "3.8",80);
 
     }
-    private void creatBook(String nazwa, String gatunek , String wydawnictwo, String autor , String ocena, String cena ){
+    private void creatBook(String name, String gatunek , String wydawnictwo, String autor , String ocena, Integer cena ){
         BookForSellEntity entity = new BookForSellEntity();
-        entity.setNazwa(nazwa);
+        entity.setName(name);
         entity.setGatunek(gatunek);
         entity.setWydawnictwo(wydawnictwo);
         entity.setAutor(autor);

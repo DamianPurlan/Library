@@ -32,17 +32,28 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
-
         httpSecurity.csrf(csrf -> csrf.disable());
         httpSecurity.formLogin(form -> form.permitAll());
         httpSecurity.httpBasic();
         httpSecurity.authorizeHttpRequests(
                 (request -> request
-                        .requestMatchers(HttpMethod.POST, "/users").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/users").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET, "/users/info").authenticated())
-        );
-
+//                        .requestMatchers(HttpMethod.POST, "/booksForRent").permitAll()
+//                        .requestMatchers(HttpMethod.GET, "/booksForRent").permitAll()
+//                        .requestMatchers(HttpMethod.PUT, "/booksForRent").permitAll()
+//                        .requestMatchers(HttpMethod.DELETE, "/booksForRent").permitAll()
+//
+//
+//                        .requestMatchers(HttpMethod.POST, "/booksForSell").permitAll()
+//                        .requestMatchers(HttpMethod.GET, "/booksForSell").permitAll()
+//                        .requestMatchers(HttpMethod.PUT, "/booksForSell").permitAll()
+//                        .requestMatchers(HttpMethod.DELETE, "/booksForSell").permitAll()
+//
+//
+//                        .requestMatchers(HttpMethod.GET, "/users").hasRole("USER")
+//                        .requestMatchers(HttpMethod.POST, "/users").permitAll()
+//                        .requestMatchers(HttpMethod.GET, "/users/info").authenticated())
+                        .anyRequest().permitAll()
+        ));
         return httpSecurity.build();
     }
 

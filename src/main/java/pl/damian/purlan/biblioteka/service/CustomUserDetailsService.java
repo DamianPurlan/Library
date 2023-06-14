@@ -1,4 +1,4 @@
-package pl.damian.purlan.biblioteka.config;
+package pl.damian.purlan.biblioteka.service;
 
 
 

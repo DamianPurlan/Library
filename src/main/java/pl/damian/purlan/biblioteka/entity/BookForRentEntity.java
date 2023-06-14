@@ -11,7 +11,7 @@ public class BookForRentEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nazwa;
+    private String name;
 
     private String gatunek;
 

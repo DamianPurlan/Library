@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface BooksForSellRepository extends JpaRepository<BookForSellEntity, Long > {
 
-//    Optional<BookForSellEntity> findByNameAndAutor(String name, String autor);
-//    Iterable<? extends BookForSellEntity> findAllByName(String name);
+    Optional<BookForSellEntity> findByNameAndAutor(String name, String autor);
+    Iterable<? extends BookForSellEntity> findAllByName(String name);
 
 }

@@ -3,8 +3,9 @@ package pl.damian.purlan.biblioteka.controller;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pl.damian.purlan.biblioteka.model.dto.BookForRent;
 import pl.damian.purlan.biblioteka.model.dto.BookForSell;
+import pl.damian.purlan.biblioteka.model.dto.BookForSellUpdateAmmount;
+import pl.damian.purlan.biblioteka.model.dto.BookForSellUpdateValue;
 import pl.damian.purlan.biblioteka.service.BooksforSellService;
 
 import java.util.List;
@@ -29,12 +30,15 @@ public class BookForSellController {
     public void createBookForRent (@RequestBody @Valid BookForSell newBookForSell){
         booksService.addBookForSell(newBookForSell);
     }
-//    @RequestMapping(method = RequestMethod.DELETE, path = "/booksForSell/{name}/{autor}")
-//        public void deleteBook(@PathVariable String name, @PathVariable String autor){
-//        booksService.sellBook(name,autor);
-//    }
-//    @RequestMapping(method = RequestMethod.PUT, path = "booksForSell/{name}/{autor}")
-//    public
 
+    @RequestMapping(method = RequestMethod.PUT, path = "booksForSell/{name}/{autor}")
+    public void updateBookForSellValue(@PathVariable String name , @PathVariable String autor ,@RequestBody BookForSellUpdateValue bookForSellUpdateValue){
+        booksService.updateBookForSellValue(name, autor, bookForSellUpdateValue);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, path = "/booksForSell/{name}")
+        public void deleteBookForSell(@PathVariable String name){
+        booksService.deleteBookForSell(name);
+    }
 
 }

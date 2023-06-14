@@ -1,13 +1,17 @@
 package pl.damian.purlan.biblioteka.model.dto;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Data;
 
 @Data
 public class BookForSell {
 
+
     private Long id;
 
-    private String nazwa;
+    private String name;
 
     private String gatunek;
 
@@ -17,9 +21,9 @@ public class BookForSell {
 
     private String ocena;
 
-    private String cena;
+    private Integer cena;
 
-    private String ammount;
+    private Integer ammount;
 
     public BookForSell() {
 

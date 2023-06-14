@@ -12,7 +12,7 @@ public class BookForSellEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nazwa;
+    private String name;
 
     private String gatunek;
 
@@ -22,7 +22,9 @@ public class BookForSellEntity {
 
     private String ocena;
 
-    private String cena;
+    private Integer cena;
+
+    private Integer ammount;
 
     public BookForSellEntity(){
 

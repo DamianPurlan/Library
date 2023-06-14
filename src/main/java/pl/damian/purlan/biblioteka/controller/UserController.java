@@ -34,7 +34,6 @@ public class UserController {
     @RequestMapping(method = RequestMethod.POST, path = "/users")
     public void createUser(@RequestBody User newUser){
         UserEntity userEntity = new UserEntity();
-
         userEntity.setEmail(newUser.getEmail());
         userEntity.setPassword(passwordEncoder.encode(newUser.getPassword()));
         userEntity.setAuthorities(authorityRepository
@@ -47,14 +46,12 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.GET, path = "/users")
     public List<UserEntity> getAllUsers(){
-        log.info("admin tu był");
         return userRepository.findAll();
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/users/info")
     public void displayUserInfoInLogs(Principal principal){
         String name = principal.getName();
-        log.info(name);
         System.out.println(name);
     }
 }

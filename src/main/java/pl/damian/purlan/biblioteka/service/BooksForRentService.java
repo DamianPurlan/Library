@@ -22,7 +22,8 @@ public class BooksForRentService {
         List<BookForRent> selected = new ArrayList<>();
         for (BookForRentEntity bookForRentEntity : allBooksForRent){
             BookForRent bookForRent = new BookForRent();
-            bookForRent.setNazwa(bookForRentEntity.getNazwa());
+            bookForRent.setId(bookForRentEntity.getId());
+            bookForRent.setName(bookForRentEntity.getName());
             bookForRent.setGatunek(bookForRentEntity.getGatunek());
             bookForRent.setWydawnictwo(bookForRentEntity.getWydawnictwo());
             bookForRent.setAutor(bookForRentEntity.getAutor());
@@ -35,7 +36,7 @@ public class BooksForRentService {
 
     public BookForRentEntity addBookForRent(BookForRent newBookForRent){
         BookForRentEntity entity = new BookForRentEntity();
-        entity.setNazwa(newBookForRent.getNazwa());
+        entity.setName(newBookForRent.getName());
         entity.setGatunek(newBookForRent.getGatunek());
         entity.setWydawnictwo(newBookForRent.getWydawnictwo());
         entity.setAutor(newBookForRent.getAutor());

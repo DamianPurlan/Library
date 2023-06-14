@@ -25,9 +25,9 @@ public class InitialDataBooksForRent implements CommandLineRunner {
 
     }
 
-    private void creatBook( String nazwa, String gatunek , String wydawnictwo, String autor , String ocena ){
+    private void creatBook( String name, String gatunek , String wydawnictwo, String autor , String ocena ){
         BookForRentEntity entity = new BookForRentEntity();
-        entity.setNazwa(nazwa);
+        entity.setName(name);
         entity.setGatunek(gatunek);
         entity.setWydawnictwo(wydawnictwo);
         entity.setAutor(autor);

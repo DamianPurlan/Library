@@ -18,6 +18,7 @@ public class AuthorityInitializer implements CommandLineRunner {
     public void run(String... args) throws Exception {
         createAndSaveAuthority("ADMIN");
         createAndSaveAuthority("USER");
+        createAndSaveAuthority("WORKER");
     }
 
     private void createAndSaveAuthority(String authorityName){

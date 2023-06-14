@@ -2,17 +2,28 @@ package pl.damian.purlan.biblioteka.dataprovider;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import pl.damian.purlan.biblioteka.entity.UserEntity;
+import pl.damian.purlan.biblioteka.repository.AuthorityRepository;
 import pl.damian.purlan.biblioteka.repository.UserRepository;
+
+import java.util.Collections;
 
 
 @Component
 public class InitialDataForUsers implements CommandLineRunner {
+
+
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final AuthorityRepository authorityRepository;
+
     @Autowired
-    public InitialDataForUsers(UserRepository userRepository){
+    public InitialDataForUsers(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthorityRepository authorityRepository){
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.authorityRepository = authorityRepository;
     }
 
 
@@ -23,9 +34,14 @@ public class InitialDataForUsers implements CommandLineRunner {
     }
 
     public void createUser(String email, String password){
-        UserEntity entity = new UserEntity();
-        entity.setEmail(email);
-        entity.setPassword(password);
-        userRepository.save(entity);
+        UserEntity userEntity = new UserEntity();
+        userEntity.setEmail(email);
+        userEntity.setPassword(passwordEncoder.encode(password));
+        userEntity.setAuthorities(authorityRepository
+                .findByName("USER")
+                .map(x -> Collections.singletonList(x))
+                .orElseThrow()
+        );
+        userRepository.save(userEntity);
     }
 }
