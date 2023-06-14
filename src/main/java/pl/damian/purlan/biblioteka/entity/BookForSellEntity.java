@@ -26,7 +26,4 @@ public class BookForSellEntity {
 
     private Integer ammount;
 
-    public BookForSellEntity(){
-
-    }
 }

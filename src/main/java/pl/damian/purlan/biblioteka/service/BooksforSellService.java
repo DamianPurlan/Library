@@ -55,7 +55,7 @@ public class BooksforSellService {
         return booksForSellRepository.save(entity);
     }
 
-    public void updateBookForSellValue(String name, String autor,BookForSellUpdateValue bookForSellUpdateValue) {
+    public void updateBookForSellValue(String name, String autor, BookForSellUpdateValue bookForSellUpdateValue) {
         booksForSellRepository.findByNameAndAutor(name, autor)
                 .map(x -> {
                     x.setCena(bookForSellUpdateValue.getCena());

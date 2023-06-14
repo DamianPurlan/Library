@@ -32,8 +32,8 @@ public class BookForSellController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, path = "booksForSell/{name}/{autor}")
-    public void updateBookForSellValue(@PathVariable String name , @PathVariable String autor ,@RequestBody BookForSellUpdateValue bookForSellUpdateValue){
-        booksService.updateBookForSellValue(name, autor, bookForSellUpdateValue);
+    public void updateBookForSellValue(@PathVariable String name ,@PathVariable String autor,@RequestBody BookForSellUpdateValue bookForSellUpdateValue){
+        booksService.updateBookForSellValue(name, autor,  bookForSellUpdateValue);
     }
 
     @RequestMapping(method = RequestMethod.DELETE, path = "/booksForSell/{name}")
