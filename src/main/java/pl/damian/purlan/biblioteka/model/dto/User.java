@@ -1,16 +1,18 @@
 package pl.damian.purlan.biblioteka.model.dto;
 
 import lombok.Data;
+import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 
 @Data
+@Service
 public class User {
 
     private String email;
     private String password;
     private Double wallet ;
-    private Collections basket;
+    private String basket;
 
     public User() {
         this.email = email;

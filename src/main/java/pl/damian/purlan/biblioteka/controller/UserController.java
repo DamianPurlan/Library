@@ -53,13 +53,21 @@ public class UserController {
         return userService.getAllUsers();
     }
 
+    @RequestMapping(method = RequestMethod.GET, path = "/basket")
+    public List<User> getBasket(String email){
+        return userService.getBasket();
+    }
+
+
     @RequestMapping(method = RequestMethod.GET, path = "/users/info")
     public void displayUserInfoInLogs(Principal principal){
         String name = principal.getName();
         System.out.println(name);
     }
-    @RequestMapping(method = RequestMethod.PUT, path = "/users/{name}")
-    public void updateWalletValue(@PathVariable String name, @RequestBody WalletValueUpdate walletValueUpdate){
-        userService.updateWalletValue(name, walletValueUpdate);
+    @RequestMapping(method = RequestMethod.PUT, path = "/users/{email}")
+    public void updateWalletValue(@PathVariable String email, @RequestBody WalletValueUpdate walletValueUpdate){
+        userService.updateWalletValue(email, walletValueUpdate);
     }
+
+
 }

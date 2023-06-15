@@ -20,6 +20,8 @@ public class UserEntity {
 
     private Double wallet;
 
+    private String basket;
+
 
     @ManyToMany
     private List<AuthorityEntity> authorities;
