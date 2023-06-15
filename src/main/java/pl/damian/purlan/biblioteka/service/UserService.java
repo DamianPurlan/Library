@@ -50,17 +50,23 @@ public class UserService {
                 });
     }
 
-
-    public List<User> getBasket(String email) {
-        List<UserEntity> allUsers = userRepository.findAll();
-        List<User> select = new ArrayList<>();
-        for (UserEntity userEntity : allUsers) {
-            if (userEntity.equals(email))
-            user.setBasket(userEntity.getBasket());
-            select.add(user);
-        }
-        return select;
+    @Transactional
+    public void getBasket(String email, BasketUpdate basketUpdate) {
+        userRepository.findByEmail(email)
+                .map(x -> {
+                    x.setBasket(basketUpdate.getBasket());
+                    return x;
+                });
     }
+//        List<UserEntity> allUsers = userRepository.findAll();
+//        List<User> select = new ArrayList<>();
+//        for (UserEntity userEntity : allUsers) {
+//            if (userEntity.equals())
+//            user.setBasket(userEntity.getBasket());
+//            select.add(user);
+//        }
+//        return select;
+
 
 
 }

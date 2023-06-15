@@ -6,6 +6,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import pl.damian.purlan.biblioteka.entity.UserEntity;
 import pl.damian.purlan.biblioteka.model.dto.User;
+import pl.damian.purlan.biblioteka.model.dto.updatevalues.BasketUpdate;
 import pl.damian.purlan.biblioteka.model.dto.updatevalues.WalletValueUpdate;
 import pl.damian.purlan.biblioteka.repository.AuthorityRepository;
 import pl.damian.purlan.biblioteka.repository.UserRepository;
@@ -53,9 +54,9 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/basket")
-    public List<User> getBasket(String email){
-        return userService.getBasket();
+    @RequestMapping(method = RequestMethod.GET, path = "/basket/{email}")
+    public void getBasket(@PathVariable String email, @RequestBody BasketUpdate basketUpdate){
+        userService.getBasket(email, basketUpdate);
     }
 
 
