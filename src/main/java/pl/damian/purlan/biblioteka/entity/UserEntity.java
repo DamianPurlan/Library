@@ -2,8 +2,10 @@ package pl.damian.purlan.biblioteka.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import pl.damian.purlan.biblioteka.model.dto.BookForSell;
 import pl.damian.purlan.biblioteka.model.dto.User;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -20,7 +22,9 @@ public class UserEntity {
 
     private Double wallet;
 
-    private String basket;
+    @OneToMany(cascade = CascadeType.ALL) // Użyj adnotacji @OneToMany
+    private List<BookForSell> basket = new ArrayList<>(); // Zmień typ pola na List<BookForSell> i inicjalizuj jako pustą listę
+
 
 
     @ManyToMany
