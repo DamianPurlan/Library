@@ -21,6 +21,7 @@ public class BookForRentEntity {
 
     private String ocena;
 
+    private Integer ammount;
 
 
 }

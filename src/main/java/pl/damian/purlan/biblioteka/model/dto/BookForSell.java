@@ -25,7 +25,4 @@ public class BookForSell {
 
     private Integer ammount;
 
-    public BookForSell() {
-
-    }
 }

@@ -29,14 +29,15 @@ public class InitialDataForUsers implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        createUser("Damian", "admin");
-        createUser("Natalia", "admin");
+        createUser("Damian", "admin", 0.0);
+        createUser("Natalia", "admin", 0.0);
     }
 
-    public void createUser(String email, String password){
+    public void createUser(String email, String password, Double wallet){
         UserEntity userEntity = new UserEntity();
         userEntity.setEmail(email);
         userEntity.setPassword(passwordEncoder.encode(password));
+        userEntity.setWallet(wallet);
         userEntity.setAuthorities(authorityRepository
                 .findByName("USER")
                 .map(x -> Collections.singletonList(x))
