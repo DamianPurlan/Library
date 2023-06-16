@@ -78,6 +78,7 @@ public class UserService {
         }
         return "Nie ma takiej ksiązki";
     }
+
     public String addBookToBasket(String email, String name) {
         Optional<UserEntity> userEntityOptional = userRepository.findByEmail(email);
         String cart = "";
@@ -92,7 +93,7 @@ public class UserService {
         }
         return cart;
     }
-    }
+}
 
 
 

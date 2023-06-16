@@ -28,7 +28,6 @@ public class BookForSellEntity {
 
     private Integer ammount;
 
-    @ManyToMany(mappedBy = "basket")
-    private List<UserEntity> users;
+
 
 }

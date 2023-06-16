@@ -60,8 +60,8 @@ public class UserController {
         return userService.getBasket(email);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, path = "/basket")
-    public String addBookToBasket(@RequestParam String email, @RequestParam String name){
+    @RequestMapping(method = RequestMethod.PUT, path = "/basket/{email}")
+    public String addBookToBasket(@RequestParam String email, @RequestParam String name, BasketUpdate basketUpdate){
         return userService.addBookToBasket(email, name);
     }
 
