@@ -120,3 +120,33 @@
 2023-06-16T07:06:16.261+02:00  INFO 6288 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2023-06-16T07:06:16.261+02:00  INFO 6288 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2023-06-16T07:06:16.262+02:00  INFO 6288 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-06-16T10:45:24.340+02:00  INFO 25504 --- [main] p.d.p.biblioteka.BibliotekaApplication   : Starting BibliotekaApplication using Java 17.0.7 with PID 25504 (C:\Users\Słodziak\IdeaProjects\Library\target\classes started by Słodziak in C:\Users\Słodziak\IdeaProjects\Library)
+2023-06-16T10:45:24.344+02:00  INFO 25504 --- [main] p.d.p.biblioteka.BibliotekaApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-06-16T10:45:24.989+02:00  INFO 25504 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-16T10:45:25.043+02:00  INFO 25504 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 4 JPA repository interfaces.
+2023-06-16T10:45:25.514+02:00  INFO 25504 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-06-16T10:45:25.523+02:00  INFO 25504 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-16T10:45:25.523+02:00  INFO 25504 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-06-16T10:45:25.595+02:00  INFO 25504 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-06-16T10:45:25.596+02:00  INFO 25504 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1215 ms
+2023-06-16T10:45:25.619+02:00  INFO 25504 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-06-16T10:45:25.816+02:00  INFO 25504 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2023-06-16T10:45:25.817+02:00  INFO 25504 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-06-16T10:45:25.827+02:00  INFO 25504 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2023-06-16T10:45:25.939+02:00  INFO 25504 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-16T10:45:26.018+02:00  INFO 25504 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.2.Final
+2023-06-16T10:45:26.021+02:00  INFO 25504 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-06-16T10:45:26.174+02:00  INFO 25504 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-06-16T10:45:26.344+02:00  INFO 25504 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-06-16T10:45:26.394+02:00  INFO 25504 --- [main] org.hibernate.orm.dialect                : HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+2023-06-16T10:45:26.669+02:00  INFO 25504 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-06-16T10:45:27.199+02:00  INFO 25504 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-16T10:45:27.252+02:00  INFO 25504 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-16T10:45:27.573+02:00  WARN 25504 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-16T10:45:27.698+02:00  INFO 25504 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@112b3298, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@51d2d336, org.springframework.security.web.context.SecurityContextHolderFilter@16a15261, org.springframework.security.web.header.HeaderWriterFilter@1443539, org.springframework.security.web.authentication.logout.LogoutFilter@eb09112, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@28521ed5, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@7359f3ac, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@90c01ab, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2267b0bb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5d8112e6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3d0f4ac4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@39921410, org.springframework.security.web.access.ExceptionTranslationFilter@2faae7f6, org.springframework.security.web.access.intercept.AuthorizationFilter@543196f9]
+2023-06-16T10:45:27.955+02:00  INFO 25504 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-06-16T10:45:27.962+02:00  INFO 25504 --- [main] p.d.p.biblioteka.BibliotekaApplication   : Started BibliotekaApplication in 3.967 seconds (process running for 4.877)
+2023-06-16T10:45:41.220+02:00  INFO 25504 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-16T10:45:41.220+02:00  INFO 25504 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-06-16T10:45:41.221+02:00  INFO 25504 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-06-16T10:46:03.618+02:00  WARN 25504 --- [http-nio-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'name' for method parameter type String is not present]

@@ -3,6 +3,8 @@ package pl.damian.purlan.biblioteka.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Table(name = "Books for sell")
 @Entity
 @Data
@@ -25,5 +27,8 @@ public class BookForSellEntity {
     private Integer cena;
 
     private Integer ammount;
+
+    @ManyToMany(mappedBy = "basket")
+    private List<UserEntity> users;
 
 }

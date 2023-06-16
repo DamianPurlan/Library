@@ -1,14 +1,14 @@
 package pl.damian.purlan.biblioteka.service;
 
 import jakarta.transaction.Transactional;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
+import pl.damian.purlan.biblioteka.entity.BookForSellEntity;
 import pl.damian.purlan.biblioteka.entity.UserEntity;
 import pl.damian.purlan.biblioteka.model.dto.BasketDTO;
 import pl.damian.purlan.biblioteka.model.dto.BookForSell;
 import pl.damian.purlan.biblioteka.model.dto.User;
-import pl.damian.purlan.biblioteka.model.dto.updatevalues.BasketUpdate;
 import pl.damian.purlan.biblioteka.model.dto.updatevalues.WalletValueUpdate;
+import pl.damian.purlan.biblioteka.repository.BooksForSellRepository;
 import pl.damian.purlan.biblioteka.repository.UserRepository;
 
 import java.util.ArrayList;
@@ -22,10 +22,12 @@ public class UserService {
     private final User user;
     private final UserRepository userRepository;
 
+    private final BooksForSellRepository booksForSellRepository;
 
-    public UserService(User user, UserRepository userRepository) {
+    public UserService(User user, UserRepository userRepository, BooksForSellRepository booksForSellRepository) {
         this.user = user;
         this.userRepository = userRepository;
+        this.booksForSellRepository = booksForSellRepository;
     }
 
 
@@ -67,34 +69,30 @@ public class UserService {
         return select;
     }
 
+    public String getBookName(String name, String autor) {
+        Optional<BookForSellEntity> bookOptional = booksForSellRepository.findByNameAndAutor(name, autor);
+        if (bookOptional.isPresent()) {
+            BookForSellEntity book = bookOptional.get();
+            String bookName = book.getName();
+            return bookName;
+        }
+        return "Nie ma takiej ksiązki";
+    }
     public String addBookToBasket(String email, String name) {
         Optional<UserEntity> userEntityOptional = userRepository.findByEmail(email);
         String cart = "";
         if (userEntityOptional.isPresent()) {
             List<BookForSell> bookForSells = new ArrayList<>();
             for (BookForSell book : bookForSells) {
-                String bookName = book.getName();
-                cart += bookName + " ";
+                if (name.equals(book)) {
+                    String bookName = book.getName();
+                    cart += bookName + " ";
+                }
             }
         }
         return cart;
     }
     }
-
-
-//    public void addBookToBasket(String email, BookForSell book) {
-//        Optional<UserEntity> userEntityOptional = userRepository.findByEmail(email);
-//        if (userEntityOptional.isPresent()) {
-//            UserEntity userEntity = userEntityOptional.get();
-//            List<BookForSell> basket = userEntity.getBasket();
-//            if (basket == null) {
-//                basket = new ArrayList<>();
-//                userEntity.setBasket(basket);
-//            }
-//            basket.add(book);
-//            userRepository.save(userEntity);
-//        }
-//    }
 
 
 
