@@ -67,19 +67,34 @@ public class UserService {
         return select;
     }
 
-    public void addBookToBasket(String email, BookForSell book) {
+    public String addBookToBasket(String email, String name) {
         Optional<UserEntity> userEntityOptional = userRepository.findByEmail(email);
+        String cart = "";
         if (userEntityOptional.isPresent()) {
-            UserEntity userEntity = userEntityOptional.get();
-            List<BookForSell> basket = userEntity.getBasket();
-            if (basket == null) {
-                basket = new ArrayList<>();
-                userEntity.setBasket(basket);
+            List<BookForSell> bookForSells = new ArrayList<>();
+            for (BookForSell book : bookForSells) {
+                String bookName = book.getName();
+                cart += bookName + " ";
             }
-            basket.add(book);
-            userRepository.save(userEntity);
         }
+        return cart;
+    }
     }
 
 
-}
+//    public void addBookToBasket(String email, BookForSell book) {
+//        Optional<UserEntity> userEntityOptional = userRepository.findByEmail(email);
+//        if (userEntityOptional.isPresent()) {
+//            UserEntity userEntity = userEntityOptional.get();
+//            List<BookForSell> basket = userEntity.getBasket();
+//            if (basket == null) {
+//                basket = new ArrayList<>();
+//                userEntity.setBasket(basket);
+//            }
+//            basket.add(book);
+//            userRepository.save(userEntity);
+//        }
+//    }
+
+
+

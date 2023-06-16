@@ -22,8 +22,8 @@ public class UserEntity {
 
     private Double wallet;
 
-    @OneToMany(cascade = CascadeType.ALL) // Użyj adnotacji @OneToMany
-    private List<BookForSell> basket = new ArrayList<>(); // Zmień typ pola na List<BookForSell> i inicjalizuj jako pustą listę
+    private String basket = "";
+
 
 
 
