@@ -24,7 +24,7 @@ public class UserEntity {
 
     private String basket = "";
 
-
+    private String cart = "";
 
 
     @ManyToMany

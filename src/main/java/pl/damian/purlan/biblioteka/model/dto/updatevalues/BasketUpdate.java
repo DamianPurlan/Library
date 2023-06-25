@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class BasketUpdate {
 
-    private String basket;
+    private Long bookForSellId;
 }

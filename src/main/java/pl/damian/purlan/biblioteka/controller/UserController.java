@@ -6,8 +6,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import pl.damian.purlan.biblioteka.entity.UserEntity;
 import pl.damian.purlan.biblioteka.model.dto.BasketDTO;
+import pl.damian.purlan.biblioteka.model.dto.CartDTO;
 import pl.damian.purlan.biblioteka.model.dto.User;
 import pl.damian.purlan.biblioteka.model.dto.updatevalues.BasketUpdate;
+import pl.damian.purlan.biblioteka.model.dto.updatevalues.CartUpdate;
 import pl.damian.purlan.biblioteka.model.dto.updatevalues.WalletValueUpdate;
 import pl.damian.purlan.biblioteka.repository.AuthorityRepository;
 import pl.damian.purlan.biblioteka.repository.UserRepository;
@@ -42,6 +44,7 @@ public class UserController {
         userEntity.setEmail(newUser.getEmail());
         userEntity.setPassword(passwordEncoder.encode(newUser.getPassword()));
         userEntity.setWallet(newUser.getWallet());
+        userEntity.setCart(newUser.getCart());
         userEntity.setAuthorities(authorityRepository
                 .findByName("USER")
                 .map(x -> Collections.singletonList(x))
@@ -56,24 +59,33 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/basket")
-    public List<BasketDTO> getBasket(@RequestParam String email) {
-        return userService.getBasket(email);
+    public List<BasketDTO> getBasket(Principal principal) {
+        return userService.getBasket(principal.getName());
     }
-
-    @RequestMapping(method = RequestMethod.PUT, path = "/basket/{email}")
-    public String addBookToBasket(@RequestParam String email, @RequestParam String name, BasketUpdate basketUpdate){
-        return userService.addBookToBasket(email, name);
+    @RequestMapping(method = RequestMethod.GET, path = "/cart/{email}")
+    public List<CartDTO> getCart(Principal principal){
+        return userService.getCart(principal.getName());
     }
-
     @RequestMapping(method = RequestMethod.GET, path = "/users/info")
     public void displayUserInfoInLogs(Principal principal){
         String name = principal.getName();
         System.out.println(name);
     }
+
+    @RequestMapping(method = RequestMethod.PUT, path = "/basket")
+    public void addBookToBasket(Principal principal, @RequestBody BasketUpdate basketUpdate){
+        userService.addBookToBasket(principal.getName(), basketUpdate);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, path = "/cart/{email}")
+    public void addBookToCart(Principal principal, @RequestBody CartUpdate cartUpdate){
+        userService.addBookToCart(principal.getName(), cartUpdate);
+    }
     @RequestMapping(method = RequestMethod.PUT, path = "/users/{email}")
     public void updateWalletValue(@PathVariable String email, @RequestBody WalletValueUpdate walletValueUpdate){
         userService.updateWalletValue(email, walletValueUpdate);
     }
+
 
 
 }

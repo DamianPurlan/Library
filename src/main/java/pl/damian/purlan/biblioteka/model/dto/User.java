@@ -13,12 +13,14 @@ public class User {
     private String password;
     private Double wallet ;
     private String basket;
+    private String cart;
 
     public User() {
         this.email = email;
         this.password = password;
         this.wallet = wallet;
         this.basket = basket;
+        this.cart = cart;
     }
 
     public String getEmail() {

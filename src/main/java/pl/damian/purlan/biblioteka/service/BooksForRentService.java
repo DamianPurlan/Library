@@ -2,8 +2,10 @@ package pl.damian.purlan.biblioteka.service;
 
 import org.springframework.stereotype.Service;
 import pl.damian.purlan.biblioteka.entity.BookForRentEntity;
+import pl.damian.purlan.biblioteka.entity.CartEntity;
 import pl.damian.purlan.biblioteka.model.dto.BookForRent;
 import pl.damian.purlan.biblioteka.model.dto.BookForSell;
+import pl.damian.purlan.biblioteka.model.dto.CartDTO;
 import pl.damian.purlan.biblioteka.repository.BooksForRentRepository;
 
 import java.util.ArrayList;
@@ -32,6 +34,8 @@ public class BooksForRentService {
         }
         return selected;
     }
+
+
 
 
     public BookForRentEntity addBookForRent(BookForRent newBookForRent){
